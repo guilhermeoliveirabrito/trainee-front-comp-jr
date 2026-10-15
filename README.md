@@ -21,3 +21,70 @@ O MeuCine segue o estilo das plataformas de streaming, com visual escuro e cards
 ## Back-end
 
 O projeto consome a [CineComp API](https://github.com/jpedroreiss/backend-cinecomp-2026-2) (opção 1 do desafio), feita com Node.js, Express, SQLite e JWT. Ela cria o banco automaticamente, então não exige instalação de banco de dados.
+
+## Pré-requisitos
+
+- Git
+- Node.js 20.19 ou superior (ou 22.12 ou superior) com npm
+
+Para conferir as versões instaladas:
+
+```bash
+git --version
+node -v
+npm -v
+```
+
+## Instalação e execução
+
+O front-end depende da API em execução. Use dois terminais.
+
+### 1. Back-end (CineComp API)
+
+```bash
+git clone https://github.com/jpedroreiss/backend-cinecomp-2026-2.git
+cd backend-cinecomp-2026-2
+npm install
+npm run dev
+```
+
+Deixe esse terminal aberto. Para conferir se a API subiu:
+
+- Health check: http://localhost:3000/api/health
+- Documentação (Swagger): http://localhost:3000/api/docs
+
+### 2. Front-end (MeuCine)
+
+Em outro terminal:
+
+```bash
+git clone https://github.com/guilhermeoliveirabrito/trainee-front-comp-jr.git
+cd trainee-front-comp-jr
+npm install
+cp .env.example .env
+npm run dev
+```
+
+Acesse o endereço mostrado no terminal, normalmente http://localhost:5173.
+
+### Variáveis de ambiente
+
+| Variável | Descrição | Valor no `.env.example` |
+| -------- | --------- | ----------------------- |
+| `VITE_API_URL` | URL base da CineComp API | `http://localhost:3000/api` |
+
+### Usuário de teste
+
+A CineComp API já vem com um usuário cadastrado:
+
+- E-mail: marcospaulo@compjunior.com.br
+- Senha: PaczinBalaTensa000-
+
+### Scripts disponíveis
+
+| Comando | O que faz |
+| ------- | --------- |
+| `npm run dev` | Inicia o servidor de desenvolvimento |
+| `npm run build` | Gera a versão de produção na pasta `dist` |
+| `npm run preview` | Serve localmente a versão de produção |
+| `npm run lint` | Verifica o código com o ESLint |
