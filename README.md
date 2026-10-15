@@ -88,3 +88,34 @@ A CineComp API já vem com um usuário cadastrado:
 | `npm run build` | Gera a versão de produção na pasta `dist` |
 | `npm run preview` | Serve localmente a versão de produção |
 | `npm run lint` | Verifica o código com o ESLint |
+
+## Estrutura de pastas
+
+```
+src/
+├── pages/       páginas da aplicação
+├── services/    configuração do Axios e chamadas à API
+├── styles/      estilos globais
+├── App.jsx      definição das rotas
+└── main.jsx     ponto de entrada
+```
+
+As pastas `components` e `assets` serão adicionadas conforme o desenvolvimento avança.
+
+## Padrão de commits
+
+Os commits seguem o padrão Conventional Commits, em português: `feat` para novas funcionalidades, `fix` para correções, `refactor` para reorganização de código, `style` para estilos, `docs` para documentação e `chore` para configurações e manutenção.
+
+## Status do projeto
+
+- [x] Semana 1: configuração do ambiente, repositório e estrutura de pastas
+- [ ] Semana 2: listagem de filmes e primeiros componentes
+- [ ] Semana 3: login, cadastro e feedback visual
+- [ ] Semana 4: navegação, layout e responsividade
+- [ ] Semana 5: CRUD completo de filmes
+- [ ] Semana 6: refinamento, tratamento de erros e feedback visual
+- [ ] Semana 7: documentação final e vídeo de demonstração
+
+## Autor
+
+Guilherme Oliveira de Brito Silva
