@@ -1,16 +1,23 @@
-# React + Vite
+# MeuCine
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web para montar a sua watchlist de filmes: explore o catálogo, busque e filtre por gênero, diretor, ano e nota, e salve os favoritos para assistir depois.
 
-Currently, two official plugins are available:
+Projeto desenvolvido para o desafio de front-end do processo trainee da Comp Júnior (UFLA).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tema
 
-## React Compiler
+O MeuCine segue o estilo das plataformas de streaming, com visual escuro e cards de filmes. Os dados vêm da CineComp API, que oferece listagem, detalhes, cadastro, edição, exclusão, favoritos e autenticação por JWT.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tecnologias e justificativas
 
-## Expanding the ESLint configuration
+| Tecnologia | Uso | Por que foi escolhida |
+| ---------- | --- | --------------------- |
+| React | Interface | Divide a tela em componentes reutilizáveis (Header, Footer, cards) e é a opção recomendada no desafio |
+| Vite | Ambiente de desenvolvimento e build | Inicialização rápida, atualização instantânea no navegador e configuração mínima |
+| React Router DOM | Rotas | Navegação entre páginas sem recarregar e rotas protegidas para usuários autenticados |
+| Axios | Requisições HTTP | Permite uma instância única com URL base, envio automático do token JWT e tratamento de erros centralizado |
+| ESLint | Qualidade do código | Padroniza o código e aponta problemas antes da execução |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Back-end
+
+O projeto consome a [CineComp API](https://github.com/jpedroreiss/backend-cinecomp-2026-2) (opção 1 do desafio), feita com Node.js, Express, SQLite e JWT. Ela cria o banco automaticamente, então não exige instalação de banco de dados.
