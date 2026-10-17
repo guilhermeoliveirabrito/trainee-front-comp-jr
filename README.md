@@ -25,7 +25,7 @@ O projeto consome a [CineComp API](https://github.com/jpedroreiss/backend-cineco
 ## Pré-requisitos
 
 - Git
-- Node.js 20.19 ou superior (ou 22.12 ou superior) com npm
+- Node.js 20.19 ou superior (ou 22.13 ou superior) com npm
 
 Para conferir as versões instaladas:
 
