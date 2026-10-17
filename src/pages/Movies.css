@@ -1,0 +1,22 @@
+.movies {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.movies__title {
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+}
+
+.movies__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.movies__empty {
+  padding: 3rem 0;
+  text-align: center;
+  color: var(--color-text-muted);
+}
