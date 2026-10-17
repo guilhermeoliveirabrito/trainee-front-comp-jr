@@ -65,6 +65,8 @@ cp .env.example .env
 npm run dev
 ```
 
+No Windows (PowerShell), use `Copy-Item .env.example .env` no lugar do `cp .env.example .env`.
+
 Acesse o endereço mostrado no terminal, normalmente http://localhost:5173.
 
 ### Variáveis de ambiente
