@@ -95,4 +95,30 @@ A CineComp API já vem com um usuário cadastrado:
 
 ```
 src/
-├── components/  componentes
+├── components/  componentes reutilizáveis (Loading, ErrorMessage, MovieCard)
+├── pages/       páginas da aplicação
+├── services/    configuração do Axios e chamadas à API
+├── styles/      estilos globais
+├── App.jsx      definição das rotas
+└── main.jsx     ponto de entrada
+```
+
+A pasta `assets` será adicionada quando houver imagens próprias do projeto.
+
+## Padrão de commits
+
+Os commits seguem o padrão Conventional Commits, em português: `feat` para novas funcionalidades, `fix` para correções, `refactor` para reorganização de código, `style` para estilos, `docs` para documentação e `chore` para configurações e manutenção.
+
+## Status do projeto
+
+- [x] Semana 1: configuração do ambiente, repositório e estrutura de pastas
+- [x] Semana 2: listagem de filmes e primeiros componentes
+- [ ] Semana 3: login, cadastro e feedback visual
+- [ ] Semana 4: navegação, layout e responsividade
+- [ ] Semana 5: CRUD completo de filmes
+- [ ] Semana 6: refinamento, tratamento de erros e feedback visual
+- [ ] Semana 7: documentação final e vídeo de demonstração
+
+## Autor
+
+Guilherme Oliveira de Brito Silva
