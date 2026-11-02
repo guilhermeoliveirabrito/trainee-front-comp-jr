@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import './Login.css';
 
@@ -75,6 +75,10 @@ export default function Login() {
         <button className="login__button" type="submit" disabled={submitting}>
           {submitting ? 'Entrando...' : 'Entrar'}
         </button>
+
+        <p className="login__footer">
+          Ainda não tem conta? <Link to="/register">Cadastre-se</Link>
+        </p>
       </form>
     </main>
   );
