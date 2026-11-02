@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { getMovies } from '../services/movieService';
+import { useFavorites } from '../hooks/useFavorites';
 import MovieCard from '../components/MovieCard/MovieCard';
 import Loading from '../components/Loading/Loading';
 import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
 import './Movies.css';
 
 export default function Movies() {
+  const { favoriteIds, toggleFavorite, error: favoritesError } = useFavorites();
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -46,6 +48,8 @@ export default function Movies() {
 
       {!loading && error && <ErrorMessage message={error} onRetry={handleRetry} />}
 
+      {!loading && !error && favoritesError && <ErrorMessage message={favoritesError} />}
+
       {!loading && !error && movies.length === 0 && (
         <p className="movies__empty">Nenhum filme encontrado.</p>
       )}
@@ -53,7 +57,12 @@ export default function Movies() {
       {!loading && !error && movies.length > 0 && (
         <div className="movies__grid">
           {movies.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} />
+            <MovieCard
+              key={movie.id}
+              movie={movie}
+              isFavorite={favoriteIds.includes(movie.id)}
+              onToggleFavorite={toggleFavorite}
+            />
           ))}
         </div>
       )}
