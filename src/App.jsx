@@ -4,6 +4,7 @@ import Layout from './components/Layout/Layout';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Register from './pages/Register';
 import Movies from './pages/Movies';
 import Favorites from './pages/Favorites';
 
@@ -20,6 +21,7 @@ export default function App() {
             </Route>
           </Route>
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>
