@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { getGenreLabel } from '../../utils/genres';
 import './MovieCard.css';
 
 export default function MovieCard({ movie, isFavorite = false, onToggleFavorite }) {
@@ -39,7 +40,7 @@ export default function MovieCard({ movie, isFavorite = false, onToggleFavorite 
       <div className="movie-card__info">
         <h3 className="movie-card__title">{title}</h3>
         <p className="movie-card__meta">
-          {releaseYear} · {genre}
+          {releaseYear} · {getGenreLabel(genre)}
         </p>
       </div>
     </article>
