@@ -22,6 +22,11 @@ export default function Header() {
           <NavLink to="/movies" className="header__link">
             Filmes
           </NavLink>
+          {isAuthenticated && (
+            <NavLink to="/favorites" className="header__link">
+              Favoritos
+            </NavLink>
+          )}
         </nav>
 
         <div className="header__session">
