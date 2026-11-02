@@ -69,3 +69,18 @@
   color: var(--color-danger);
   font-size: 0.9rem;
 }
+
+.login__footer {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.login__footer a {
+  color: var(--color-accent);
+}
+
+.login__footer a:hover {
+  text-decoration: underline;
+}
