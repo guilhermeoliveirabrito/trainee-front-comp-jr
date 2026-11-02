@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getFavorites } from '../services/favoriteService';
+import { getFavorites, removeFavorite } from '../services/favoriteService';
 import MovieCard from '../components/MovieCard/MovieCard';
 import Loading from '../components/Loading/Loading';
 import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
@@ -9,6 +9,7 @@ export default function Favorites() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [actionError, setActionError] = useState('');
   const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
@@ -36,6 +37,17 @@ export default function Favorites() {
     setAttempt((current) => current + 1);
   }
 
+  async function handleRemove(movie) {
+    setActionError('');
+
+    try {
+      await removeFavorite(movie.id);
+      setMovies((current) => current.filter((item) => item.id !== movie.id));
+    } catch {
+      setActionError('Não foi possível remover o filme dos favoritos. Tente novamente.');
+    }
+  }
+
   return (
     <main className="movies">
       <h1 className="movies__title">Meus favoritos</h1>
@@ -44,6 +56,8 @@ export default function Favorites() {
 
       {!loading && error && <ErrorMessage message={error} onRetry={handleRetry} />}
 
+      {!loading && !error && actionError && <ErrorMessage message={actionError} />}
+
       {!loading && !error && movies.length === 0 && (
         <p className="movies__empty">Você ainda não favoritou nenhum filme.</p>
       )}
@@ -51,7 +65,12 @@ export default function Favorites() {
       {!loading && !error && movies.length > 0 && (
         <div className="movies__grid">
           {movies.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} />
+            <MovieCard
+              key={movie.id}
+              movie={movie}
+              isFavorite
+              onToggleFavorite={handleRemove}
+            />
           ))}
         </div>
       )}
