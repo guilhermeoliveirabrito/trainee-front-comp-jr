@@ -95,10 +95,13 @@ A CineComp API já vem com um usuário cadastrado:
 
 ```
 src/
-├── components/  componentes reutilizáveis (Loading, ErrorMessage, MovieCard)
+├── components/  componentes reutilizáveis (Header, Layout, MovieCard, PrivateRoute e outros)
+├── contexts/    estado global da autenticação
+├── hooks/       hooks reutilizáveis (useAuth, useFavorites)
 ├── pages/       páginas da aplicação
 ├── services/    configuração do Axios e chamadas à API
 ├── styles/      estilos globais
+├── utils/       funções auxiliares (sessão no navegador)
 ├── App.jsx      definição das rotas
 └── main.jsx     ponto de entrada
 ```
@@ -113,7 +116,7 @@ Os commits seguem o padrão Conventional Commits, em português: `feat` para nov
 
 - [x] Semana 1: configuração do ambiente, repositório e estrutura de pastas
 - [x] Semana 2: listagem de filmes e primeiros componentes
-- [ ] Semana 3: login, cadastro e feedback visual
+- [x] Semana 3: login, cadastro e feedback visual
 - [ ] Semana 4: navegação, layout e responsividade
 - [ ] Semana 5: CRUD completo de filmes
 - [ ] Semana 6: refinamento, tratamento de erros e feedback visual
