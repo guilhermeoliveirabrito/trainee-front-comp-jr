@@ -8,6 +8,7 @@ import Register from './pages/Register';
 import Movies from './pages/Movies';
 import MovieDetail from './pages/MovieDetail';
 import Favorites from './pages/Favorites';
+import AdminMovies from './pages/AdminMovies';
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
             <Route path="/movies/:id" element={<MovieDetail />} />
             <Route element={<PrivateRoute />}>
               <Route path="/favorites" element={<Favorites />} />
+              <Route path="/admin/movies" element={<AdminMovies />} />
             </Route>
           </Route>
           <Route path="/login" element={<Login />} />
