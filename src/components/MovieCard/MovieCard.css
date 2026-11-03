@@ -84,3 +84,13 @@
 .movie-card__favorite--active {
   color: var(--color-danger);
 }
+
+.movie-card__poster-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.movie-card__title a:hover {
+  color: var(--color-accent);
+}

@@ -1,25 +1,33 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { getGenreLabel } from '../../utils/genres';
 import './MovieCard.css';
 
 export default function MovieCard({ movie, isFavorite = false, onToggleFavorite }) {
   const [posterFailed, setPosterFailed] = useState(false);
-  const { title, genre, releaseYear, rating, posterUrl } = movie;
+  const { id, title, genre, releaseYear, rating, posterUrl } = movie;
   const showPoster = posterUrl && !posterFailed;
+  const detailsPath = `/movies/${id}`;
 
   return (
     <article className="movie-card">
       <div className="movie-card__poster">
-        {showPoster ? (
-          <img
-            src={posterUrl}
-            alt={`Pôster de ${title}`}
-            loading="lazy"
-            onError={() => setPosterFailed(true)}
-          />
-        ) : (
-          <span className="movie-card__no-poster">Sem pôster</span>
-        )}
+        <Link
+          to={detailsPath}
+          className="movie-card__poster-link"
+          aria-label={`Ver detalhes de ${title}`}
+        >
+          {showPoster ? (
+            <img
+              src={posterUrl}
+              alt={`Pôster de ${title}`}
+              loading="lazy"
+              onError={() => setPosterFailed(true)}
+            />
+          ) : (
+            <span className="movie-card__no-poster">Sem pôster</span>
+          )}
+        </Link>
         <span className="movie-card__rating">{Number(rating).toFixed(1)}</span>
         {onToggleFavorite && (
           <button
@@ -38,7 +46,9 @@ export default function MovieCard({ movie, isFavorite = false, onToggleFavorite 
         )}
       </div>
       <div className="movie-card__info">
-        <h3 className="movie-card__title">{title}</h3>
+        <h3 className="movie-card__title">
+          <Link to={detailsPath}>{title}</Link>
+        </h3>
         <p className="movie-card__meta">
           {releaseYear} · {getGenreLabel(genre)}
         </p>
