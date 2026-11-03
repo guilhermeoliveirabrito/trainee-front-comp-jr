@@ -90,6 +90,27 @@ A CineComp API já vem com um usuário cadastrado:
 | `npm run preview` | Serve localmente a versão de produção |
 | `npm run lint` | Verifica o código com o ESLint |
 
+## Funcionalidades
+
+- Cadastro, login e logout, com a sessão mantida no navegador (JWT)
+- Listagem de filmes com busca, filtro por gênero, ordenação e paginação
+- Página de detalhes de cada filme
+- Favoritar e desfavoritar filmes (área restrita)
+- Cadastro, edição e exclusão de filmes, com confirmação e notificações (área restrita)
+- Tratamento de erros da API, indicadores de carregamento e página 404
+
+## Rotas
+
+| Rota | Acesso | Descrição |
+| ---- | ------ | --------- |
+| `/` | Público | Página inicial com os filmes mais bem avaliados |
+| `/movies` | Público | Lista com busca, filtros e paginação |
+| `/movies/:id` | Público | Detalhes do filme |
+| `/login` | Público | Entrar |
+| `/register` | Público | Criar conta |
+| `/favorites` | Restrito | Filmes favoritos |
+| `/admin/movies` | Restrito | Cadastro, edição e exclusão de filmes |
+
 ## Estrutura de pastas
 
 ```
