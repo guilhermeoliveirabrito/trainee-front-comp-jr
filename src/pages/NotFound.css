@@ -1,0 +1,37 @@
+.not-found {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
+.not-found__code {
+  color: var(--color-accent);
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.not-found__title {
+  margin-top: 1rem;
+  font-size: 1.75rem;
+}
+
+.not-found__text {
+  margin-top: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.not-found__link {
+  display: inline-block;
+  margin-top: 1.75rem;
+  padding: 0.7rem 1.4rem;
+  border-radius: var(--radius);
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  font-weight: 600;
+}
+
+.not-found__link:hover {
+  opacity: 0.9;
+}
