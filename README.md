@@ -138,7 +138,7 @@ Os commits seguem o padrão Conventional Commits, em português: `feat` para nov
 - [x] Semana 2: listagem de filmes e primeiros componentes
 - [x] Semana 3: login, cadastro e feedback visual
 - [ ] Semana 4: navegação, layout e responsividade
-- [ ] Semana 5: CRUD completo de filmes
+- [x] Semana 5: CRUD completo de filmes
 - [ ] Semana 6: refinamento, tratamento de erros e feedback visual
 - [ ] Semana 7: documentação final e vídeo de demonstração
 
