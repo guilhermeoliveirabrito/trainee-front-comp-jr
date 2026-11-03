@@ -115,24 +115,31 @@ export default function MovieForm({ movie = null, submitting = false, onSubmit, 
         />
       </Field>
 
-      <Field id="movie-genre" label="Gênero" error={errors.genre}>
-        <select
-          id="movie-genre"
-          name="genre"
-          className="movie-form__input"
-          value={values.genre}
-          onChange={handleChange}
-          disabled={submitting}
-          aria-invalid={Boolean(errors.genre)}
-        >
-          <option value="">Selecione</option>
+      <fieldset
+        className="movie-form__field movie-form__field--full movie-form__group"
+        disabled={submitting}
+      >
+        <legend className="movie-form__label">Gênero</legend>
+        <div className="movie-form__chips">
           {genreOptions.map((genre) => (
-            <option key={genre.value} value={genre.value}>
-              {genre.label}
-            </option>
+            <label key={genre.value} className="movie-form__chip">
+              <input
+                type="radio"
+                name="genre"
+                value={genre.value}
+                checked={values.genre === genre.value}
+                onChange={handleChange}
+              />
+              <span>{genre.label}</span>
+            </label>
           ))}
-        </select>
-      </Field>
+        </div>
+        {errors.genre && (
+          <span className="movie-form__error" role="alert">
+            {errors.genre}
+          </span>
+        )}
+      </fieldset>
 
       <Field id="movie-director" label="Diretor" error={errors.director}>
         <input
@@ -176,7 +183,7 @@ export default function MovieForm({ movie = null, submitting = false, onSubmit, 
         />
       </Field>
 
-      <Field id="movie-posterUrl" label="URL do pôster (opcional)" full>
+      <Field id="movie-posterUrl" label="URL do pôster (opcional)">
         <input
           id="movie-posterUrl"
           name="posterUrl"
