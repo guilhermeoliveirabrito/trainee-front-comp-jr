@@ -1,0 +1,121 @@
+.admin {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.admin__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin__title {
+  font-size: 1.75rem;
+}
+
+.admin__button {
+  padding: 0.65rem 1.25rem;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  font-weight: 600;
+}
+
+.admin__panel {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+.admin__panel-title {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.admin__form-errors {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-danger);
+  border-radius: var(--radius);
+  color: var(--color-danger);
+  font-size: 0.9rem;
+}
+
+.admin__form-errors ul {
+  padding-left: 1.1rem;
+  list-style: disc;
+}
+
+.admin__empty {
+  padding: 3rem 0;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.admin__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.admin__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+.admin__item-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.admin__item-title {
+  font-weight: 600;
+}
+
+.admin__item-title:hover {
+  color: var(--color-accent);
+}
+
+.admin__item-meta {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.admin__item-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.admin__action {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--color-text);
+  font-size: 0.9rem;
+}
+
+.admin__action:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.admin__action--danger:hover {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
