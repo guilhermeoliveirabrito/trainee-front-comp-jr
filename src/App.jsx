@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Movies from './pages/Movies';
+import MovieDetail from './pages/MovieDetail';
 import Favorites from './pages/Favorites';
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
             <Route path="/movies" element={<Movies />} />
+            <Route path="/movies/:id" element={<MovieDetail />} />
             <Route element={<PrivateRoute />}>
               <Route path="/favorites" element={<Favorites />} />
             </Route>
