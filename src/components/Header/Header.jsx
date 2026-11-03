@@ -23,9 +23,14 @@ export default function Header() {
             Filmes
           </NavLink>
           {isAuthenticated && (
-            <NavLink to="/favorites" className="header__link">
-              Favoritos
-            </NavLink>
+            <>
+              <NavLink to="/favorites" className="header__link">
+                Favoritos
+              </NavLink>
+              <NavLink to="/admin/movies" className="header__link">
+                Gerenciar
+              </NavLink>
+            </>
           )}
         </nav>
 
