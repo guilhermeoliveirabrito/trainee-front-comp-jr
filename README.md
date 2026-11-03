@@ -57,7 +57,6 @@ Deixe esse terminal aberto. Para conferir se a API subiu:
 
 Em outro terminal:
 
-```bash
 git clone https://github.com/guilhermeoliveirabrito/trainee-front-comp-jr.git
 cd trainee-front-comp-jr
 npm install
