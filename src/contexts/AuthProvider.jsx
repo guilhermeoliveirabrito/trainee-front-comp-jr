@@ -30,7 +30,13 @@ export default function AuthProvider({ children }) {
     setUser(null);
   }
 
-  const value = { user, isAuthenticated: Boolean(user), login, logout };
+  function updateUser(changes) {
+    const nextUser = { ...user, ...changes };
+    saveSession(getToken(), nextUser);
+    setUser(nextUser);
+  }
+
+  const value = { user, isAuthenticated: Boolean(user), login, logout, updateUser };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
