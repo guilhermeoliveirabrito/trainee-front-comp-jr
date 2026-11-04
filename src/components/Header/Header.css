@@ -70,3 +70,20 @@
     display: none;
   }
 }
+
+@media (max-width: 600px) {
+  .header__content {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+  }
+
+  .header__session {
+    margin-left: auto;
+  }
+
+  .header__nav {
+    order: 3;
+    flex-basis: 100%;
+    flex-wrap: wrap;
+  }
+}
