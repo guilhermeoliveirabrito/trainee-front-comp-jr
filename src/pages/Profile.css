@@ -1,0 +1,91 @@
+.profile {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.profile__title {
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+}
+
+.profile__card {
+  padding: 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+.profile__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.profile__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.profile__label {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.profile__input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.profile__input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.profile__input[aria-invalid='true'] {
+  border-color: var(--color-danger);
+}
+
+.profile__error {
+  color: var(--color-danger);
+  font-size: 0.8rem;
+}
+
+.profile__api-errors {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-danger);
+  border-radius: var(--radius);
+  color: var(--color-danger);
+  font-size: 0.9rem;
+}
+
+.profile__api-errors ul {
+  padding-left: 1.1rem;
+  list-style: disc;
+}
+
+.profile__hint {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.profile__submit {
+  align-self: flex-start;
+  padding: 0.7rem 1.4rem;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  font-weight: 600;
+}
+
+.profile__submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
