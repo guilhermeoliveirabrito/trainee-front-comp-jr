@@ -111,6 +111,7 @@ A CineComp API já vem com um usuário cadastrado:
 | `/register` | Público | Criar conta |
 | `/favorites` | Restrito | Filmes favoritos |
 | `/admin/movies` | Restrito | Cadastro, edição e exclusão de filmes |
+| `/profile` | Restrito | Ver e editar nome e e-mail |
 
 ## Estrutura de pastas
 
