@@ -9,6 +9,7 @@ import Movies from './pages/Movies';
 import MovieDetail from './pages/MovieDetail';
 import Favorites from './pages/Favorites';
 import AdminMovies from './pages/AdminMovies';
+import Profile from './pages/Profile';
 import NotFound from './pages/NotFound';
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
             <Route element={<PrivateRoute />}>
               <Route path="/favorites" element={<Favorites />} />
               <Route path="/admin/movies" element={<AdminMovies />} />
+              <Route path="/profile" element={<Profile />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Route>
