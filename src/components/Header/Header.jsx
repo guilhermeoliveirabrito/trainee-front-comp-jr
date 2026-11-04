@@ -30,6 +30,9 @@ export default function Header() {
               <NavLink to="/admin/movies" className="header__link">
                 Gerenciar
               </NavLink>
+              <NavLink to="/profile" className="header__link">
+                Perfil
+              </NavLink>
             </>
           )}
         </nav>
