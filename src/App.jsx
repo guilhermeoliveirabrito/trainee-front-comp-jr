@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AuthProvider from './contexts/AuthProvider';
 import Layout from './components/Layout/Layout';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import TitleManager from './components/TitleManager/TitleManager';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -15,6 +16,7 @@ import NotFound from './pages/NotFound';
 export default function App() {
   return (
     <BrowserRouter>
+      <TitleManager />
       <AuthProvider>
         <Routes>
           <Route element={<Layout />}>
