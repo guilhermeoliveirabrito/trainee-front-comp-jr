@@ -5,6 +5,7 @@ import { useFavorites } from '../hooks/useFavorites';
 import { getGenreLabel } from '../utils/genres';
 import Loading from '../components/Loading/Loading';
 import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
+import Poster from '../components/Poster/Poster';
 import './MovieDetail.css';
 
 export default function MovieDetail() {
@@ -12,7 +13,6 @@ export default function MovieDetail() {
   const { favoriteIds, toggleFavorite, error: favoritesError } = useFavorites();
   const [attempt, setAttempt] = useState(0);
   const [response, setResponse] = useState({ key: '' });
-  const [posterFailed, setPosterFailed] = useState(false);
 
   const requestKey = `${id}|${attempt}`;
   const loading = response.key !== requestKey;
@@ -44,7 +44,6 @@ export default function MovieDetail() {
   }, [id, requestKey]);
 
   const isFavorite = movie ? favoriteIds.includes(movie.id) : false;
-  const showPoster = movie?.posterUrl && !posterFailed;
 
   return (
     <main className="movie-detail">
@@ -64,15 +63,7 @@ export default function MovieDetail() {
       {!loading && movie && (
         <article className="movie-detail__content">
           <div className="movie-detail__poster">
-            {showPoster ? (
-              <img
-                src={movie.posterUrl}
-                alt={`Pôster de ${movie.title}`}
-                onError={() => setPosterFailed(true)}
-              />
-            ) : (
-              <span className="movie-detail__no-poster">Sem pôster</span>
-            )}
+            <Poster movie={movie} />
           </div>
 
           <div className="movie-detail__info">
