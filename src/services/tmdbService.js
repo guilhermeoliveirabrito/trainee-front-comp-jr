@@ -3,7 +3,7 @@ import axios from 'axios';
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 const SEARCH_URL = 'https://api.themoviedb.org/3/search/movie';
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
-const CACHE_KEY = 'meucine:tmdb';
+const CACHE_KEY = 'meucine:tmdb-en';
 const PLACEHOLDER_HOSTS = [
   'placehold.co',
   'placeholder.com',
@@ -37,7 +37,7 @@ function writeCache(cache) {
 
 async function requestResults(title, year) {
   const { data } = await axios.get(SEARCH_URL, {
-    params: { api_key: API_KEY, query: title, year, language: 'pt-BR' },
+    params: { api_key: API_KEY, query: title, year, language: 'en-US' },
   });
   return data.results ?? [];
 }
