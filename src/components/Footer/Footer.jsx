@@ -15,6 +15,13 @@ export default function Footer() {
           Código no GitHub
         </a>
       </div>
+      <p className="footer__credit">
+        Capas fornecidas pelo{' '}
+        <a href="https://www.themoviedb.org" target="_blank" rel="noreferrer">
+          TMDB
+        </a>
+        . Este produto usa a API do TMDB, mas não é endossado nem certificado por ele.
+      </p>
     </footer>
   );
 }

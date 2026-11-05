@@ -33,3 +33,19 @@
 .footer__link:hover {
   color: var(--color-accent);
 }
+
+.footer__credit {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem 1.25rem;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+}
+
+.footer__credit a {
+  text-decoration: underline;
+}
+
+.footer__credit a:hover {
+  color: var(--color-accent);
+}
