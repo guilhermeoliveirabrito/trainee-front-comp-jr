@@ -102,6 +102,7 @@ Também é possível criar uma conta nova pela página de cadastro.
 - Favoritar e desfavoritar filmes (área restrita)
 - Cadastro, edição e exclusão de filmes, com confirmação e notificações (área restrita)
 - Edição do nome e do e-mail do perfil (área restrita)
+- Capas reais dos filmes via TMDB, com capa gerada quando não houver pôster
 - Tratamento de erros da API, indicadores de carregamento e página 404
 - Encerramento automático da sessão quando o token expira
 - Layout responsivo, do celular ao desktop
