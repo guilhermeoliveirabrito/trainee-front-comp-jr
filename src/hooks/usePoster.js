@@ -1,45 +1,30 @@
-import { useEffect, useState } from 'react';
-import { fetchPoster, getCachedPoster, isPlaceholderUrl } from '../services/posterService';
+import { useState } from 'react';
+import { isPlaceholderUrl } from '../services/tmdbService';
+import { useTmdbInfo } from './useTmdbInfo';
 
 export function usePoster(movie) {
   const { title, releaseYear, posterUrl } = movie;
-  const key = `${title}|${releaseYear}`;
+  const info = useTmdbInfo(title, releaseYear);
   const hasOwnPoster = Boolean(posterUrl) && !isPlaceholderUrl(posterUrl);
-  const [stage, setStage] = useState(hasOwnPoster ? 'own' : 'tmdb');
-  const [fetched, setFetched] = useState({ key: '', url: '' });
+  const [ownFailed, setOwnFailed] = useState(false);
+  const [tmdbFailed, setTmdbFailed] = useState(false);
 
-  const cached = getCachedPoster(title, releaseYear);
+  const usingOwn = hasOwnPoster && !ownFailed;
 
-  let tmdbUrl = '';
-  if (cached !== undefined) {
-    tmdbUrl = cached;
-  } else if (fetched.key === key) {
-    tmdbUrl = fetched.url;
+  let src = '';
+  if (usingOwn) {
+    src = posterUrl;
+  } else if (!tmdbFailed) {
+    src = info.poster;
   }
-
-  useEffect(() => {
-    if (stage !== 'tmdb' || cached !== undefined) return undefined;
-
-    let active = true;
-
-    fetchPoster(title, releaseYear)
-      .then((url) => {
-        if (active) setFetched({ key, url });
-      })
-      .catch(() => {
-        if (active) setFetched({ key, url: '' });
-      });
-
-    return () => {
-      active = false;
-    };
-  }, [stage, cached, key, title, releaseYear]);
-
-  const sources = { own: posterUrl, tmdb: tmdbUrl, none: '' };
 
   function onError() {
-    setStage((current) => (current === 'own' ? 'tmdb' : 'none'));
+    if (usingOwn) {
+      setOwnFailed(true);
+    } else {
+      setTmdbFailed(true);
+    }
   }
 
-  return { src: sources[stage], onError };
+  return { src, onError };
 }
