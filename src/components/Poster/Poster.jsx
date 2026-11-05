@@ -1,4 +1,5 @@
 import { usePoster } from '../../hooks/usePoster';
+import { useMovieTitle } from '../../hooks/useMovieTitle';
 import './Poster.css';
 
 function hueFromTitle(title) {
@@ -11,20 +12,21 @@ function hueFromTitle(title) {
 
 export default function Poster({ movie }) {
   const { src, onError } = usePoster(movie);
+  const title = useMovieTitle(movie);
 
   if (src) {
     return (
       <img
         className="poster__image"
         src={src}
-        alt={`Pôster de ${movie.title}`}
+        alt={`Pôster de ${title}`}
         loading="lazy"
         onError={onError}
       />
     );
   }
 
-  const hue = hueFromTitle(movie.title);
+  const hue = hueFromTitle(title);
 
   return (
     <div
@@ -33,10 +35,10 @@ export default function Poster({ movie }) {
         background: `linear-gradient(160deg, hsl(${hue} 45% 28%), hsl(${(hue + 40) % 360} 50% 12%))`,
       }}
       role="img"
-      aria-label={`Capa de ${movie.title}`}
+      aria-label={`Capa de ${title}`}
     >
-      <span className="poster__initial">{movie.title.charAt(0).toUpperCase()}</span>
-      <span className="poster__title">{movie.title}</span>
+      <span className="poster__initial">{title.charAt(0).toUpperCase()}</span>
+      <span className="poster__title">{title}</span>
     </div>
   );
 }
