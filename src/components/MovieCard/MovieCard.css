@@ -23,15 +23,6 @@
   object-fit: cover;
 }
 
-.movie-card__no-poster {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
-}
 
 .movie-card__rating {
   position: absolute;

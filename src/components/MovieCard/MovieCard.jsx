@@ -1,12 +1,10 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getGenreLabel } from '../../utils/genres';
+import Poster from '../Poster/Poster';
 import './MovieCard.css';
 
 export default function MovieCard({ movie, isFavorite = false, onToggleFavorite }) {
-  const [posterFailed, setPosterFailed] = useState(false);
-  const { id, title, genre, releaseYear, rating, posterUrl } = movie;
-  const showPoster = posterUrl && !posterFailed;
+  const { id, title, genre, releaseYear, rating } = movie;
   const detailsPath = `/movies/${id}`;
 
   return (
@@ -17,16 +15,7 @@ export default function MovieCard({ movie, isFavorite = false, onToggleFavorite 
           className="movie-card__poster-link"
           aria-label={`Ver detalhes de ${title}`}
         >
-          {showPoster ? (
-            <img
-              src={posterUrl}
-              alt={`Pôster de ${title}`}
-              loading="lazy"
-              onError={() => setPosterFailed(true)}
-            />
-          ) : (
-            <span className="movie-card__no-poster">Sem pôster</span>
-          )}
+          <Poster movie={movie} />
         </Link>
         <span className="movie-card__rating">{Number(rating).toFixed(1)}</span>
         {onToggleFavorite && (
