@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { fetchPoster, getCachedPoster } from '../services/posterService';
+import { fetchPoster, getCachedPoster, isPlaceholderUrl } from '../services/posterService';
 
 export function usePoster(movie) {
   const { title, releaseYear, posterUrl } = movie;
   const key = `${title}|${releaseYear}`;
-  const [stage, setStage] = useState(posterUrl ? 'own' : 'tmdb');
+  const hasOwnPoster = Boolean(posterUrl) && !isPlaceholderUrl(posterUrl);
+  const [stage, setStage] = useState(hasOwnPoster ? 'own' : 'tmdb');
   const [fetched, setFetched] = useState({ key: '', url: '' });
 
   const cached = getCachedPoster(title, releaseYear);
