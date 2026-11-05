@@ -1,5 +1,4 @@
 import { usePoster } from '../../hooks/usePoster';
-import { useMovieTitle } from '../../hooks/useMovieTitle';
 import './Poster.css';
 
 function hueFromTitle(title) {
@@ -12,7 +11,7 @@ function hueFromTitle(title) {
 
 export default function Poster({ movie }) {
   const { src, onError } = usePoster(movie);
-  const title = useMovieTitle(movie);
+  const { title } = movie;
 
   if (src) {
     return (
