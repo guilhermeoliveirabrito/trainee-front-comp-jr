@@ -76,6 +76,17 @@ Acesse o endereço mostrado no terminal, normalmente http://localhost:5173.
 | `VITE_API_URL` | URL base da CineComp API | `http://localhost:3000/api` |
 | `VITE_TMDB_API_KEY` | Chave gratuita do TMDB para buscar as capas dos filmes (opcional) | vazio |
 
+### Capas dos filmes (opcional)
+
+A API não guarda capas reais, então o MeuCine busca os pôsteres no [TMDB](https://www.themoviedb.org) pelo título e ano do filme e guarda o resultado no navegador. Este produto usa a API do TMDB, mas não é endossado nem certificado por ele. Sem a chave, o projeto funciona normalmente e mostra uma capa gerada no lugar do pôster.
+
+Para ativar as capas reais:
+
+1. Crie uma conta gratuita em https://www.themoviedb.org
+2. Em Configurações, aba API, solicite uma chave do tipo Developer e copie a "Chave da API"
+3. No arquivo `.env`, preencha `VITE_TMDB_API_KEY=sua_chave`
+4. Reinicie o `npm run dev`
+
 ### Usuário de teste
 
 A CineComp API já vem com um usuário cadastrado:
