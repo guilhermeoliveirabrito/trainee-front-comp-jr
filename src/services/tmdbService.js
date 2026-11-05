@@ -11,7 +11,7 @@ const PLACEHOLDER_HOSTS = [
   'example.com',
 ];
 
-export const EMPTY_INFO = { poster: '', title: '' };
+export const EMPTY_INFO = { poster: '' };
 
 const pending = new Map();
 
@@ -53,7 +53,6 @@ function pickInfo(results, year) {
 
   return {
     poster: found.poster_path ? `${IMAGE_BASE_URL}${found.poster_path}` : '',
-    title: found.title ?? '',
   };
 }
 
