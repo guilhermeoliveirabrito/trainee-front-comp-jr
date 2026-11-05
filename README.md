@@ -78,7 +78,7 @@ Acesse o endereço mostrado no terminal, normalmente http://localhost:5173.
 
 ### Capas dos filmes (opcional)
 
-A API não guarda capas reais, então o MeuCine busca os pôsteres no [TMDB](https://www.themoviedb.org) pelo título e ano do filme e guarda o resultado no navegador. Este produto usa a API do TMDB, mas não é endossado nem certificado por ele. Sem a chave, o projeto funciona normalmente e mostra uma capa gerada no lugar do pôster.
+A API não guarda capas reais, então o MeuCine busca os pôsteres e os títulos em português no [TMDB](https://www.themoviedb.org) pelo título e ano do filme e guarda o resultado no navegador. Este produto usa a API do TMDB, mas não é endossado nem certificado por ele. Sem a chave, o projeto funciona normalmente e mostra uma capa gerada no lugar do pôster.
 
 Para ativar as capas reais:
 
@@ -114,6 +114,8 @@ Também é possível criar uma conta nova pela página de cadastro.
 - Cadastro, edição e exclusão de filmes, com confirmação e notificações (área restrita)
 - Edição do nome e do e-mail do perfil (área restrita)
 - Capas reais dos filmes via TMDB, com capa gerada quando não houver pôster
+- Títulos em português vindos do TMDB, com o título original nos detalhes
+- Avaliação pessoal de 1 a 5 estrelas na página do filme, guardada no navegador
 - Tratamento de erros da API, indicadores de carregamento e página 404
 - Encerramento automático da sessão quando o token expira
 - Layout responsivo, do celular ao desktop
