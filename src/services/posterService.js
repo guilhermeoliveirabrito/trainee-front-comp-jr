@@ -4,6 +4,12 @@ const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 const SEARCH_URL = 'https://api.themoviedb.org/3/search/movie';
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 const CACHE_KEY = 'meucine:posters';
+const PLACEHOLDER_HOSTS = [
+  'placehold.co',
+  'placeholder.com',
+  'dummyimage.com',
+  'example.com',
+];
 
 const pending = new Map();
 
@@ -33,6 +39,15 @@ async function searchPoster(title, year) {
   });
   const found = data.results?.find((item) => item.poster_path);
   return found ? `${IMAGE_BASE_URL}${found.poster_path}` : '';
+}
+
+export function isPlaceholderUrl(url) {
+  try {
+    const { hostname } = new URL(url);
+    return PLACEHOLDER_HOSTS.some((host) => hostname === host || hostname.endsWith(`.${host}`));
+  } catch {
+    return true;
+  }
 }
 
 export function getCachedPoster(title, releaseYear) {
