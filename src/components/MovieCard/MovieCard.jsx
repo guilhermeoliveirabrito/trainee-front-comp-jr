@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom';
 import { getGenreLabel } from '../../utils/genres';
-import { useMovieTitle } from '../../hooks/useMovieTitle';
 import Poster from '../Poster/Poster';
 import './MovieCard.css';
 
 export default function MovieCard({ movie, isFavorite = false, onToggleFavorite }) {
-  const { id, genre, releaseYear, rating } = movie;
-  const title = useMovieTitle(movie);
+  const { id, title, genre, releaseYear, rating } = movie;
   const detailsPath = `/movies/${id}`;
 
   return (
