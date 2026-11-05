@@ -112,10 +112,9 @@ Também é possível criar uma conta nova pela página de cadastro.
 - Página de detalhes de cada filme
 - Favoritar e desfavoritar filmes (área restrita)
 - Cadastro, edição e exclusão de filmes, com confirmação e notificações (área restrita)
-- Edição do nome e do e-mail do perfil (área restrita)
+- Perfil com os filmes favoritados e edição de nome e e-mail (área restrita)
 - Capas reais dos filmes via TMDB, com capa gerada quando não houver pôster
 - Títulos em português vindos do TMDB, com o título original nos detalhes
-- Avaliação pessoal de 1 a 5 estrelas na página do filme, guardada no navegador
 - Tratamento de erros da API, indicadores de carregamento e página 404
 - Encerramento automático da sessão quando o token expira
 - Layout responsivo, do celular ao desktop
@@ -131,7 +130,7 @@ Também é possível criar uma conta nova pela página de cadastro.
 | `/register` | Público | Criar conta |
 | `/favorites` | Restrito | Filmes favoritos |
 | `/admin/movies` | Restrito | Cadastro, edição e exclusão de filmes |
-| `/profile` | Restrito | Ver e editar nome e e-mail |
+| `/profile` | Restrito | Filmes favoritados e edição de nome e e-mail |
 
 As rotas restritas redirecionam para o login e, depois de entrar, voltam para a página que o usuário tentou acessar.
 
