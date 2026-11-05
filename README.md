@@ -74,6 +74,7 @@ Acesse o endereço mostrado no terminal, normalmente http://localhost:5173.
 | Variável | Descrição | Valor no `.env.example` |
 | -------- | --------- | ----------------------- |
 | `VITE_API_URL` | URL base da CineComp API | `http://localhost:3000/api` |
+| `VITE_TMDB_API_KEY` | Chave gratuita do TMDB para buscar as capas dos filmes (opcional) | vazio |
 
 ### Usuário de teste
 
