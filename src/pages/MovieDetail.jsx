@@ -2,14 +2,11 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getMovieById } from '../services/movieService';
 import { useFavorites } from '../hooks/useFavorites';
-import { useMovieTitle } from '../hooks/useMovieTitle';
 import { getGenreLabel } from '../utils/genres';
 import Loading from '../components/Loading/Loading';
 import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
 import Poster from '../components/Poster/Poster';
 import './MovieDetail.css';
-
-const NO_MOVIE = {};
 
 export default function MovieDetail() {
   const { id } = useParams();
@@ -20,7 +17,6 @@ export default function MovieDetail() {
   const requestKey = `${id}|${attempt}`;
   const loading = response.key !== requestKey;
   const movie = response.movie;
-  const title = useMovieTitle(movie ?? NO_MOVIE);
 
   useEffect(() => {
     let active = true;
@@ -71,10 +67,7 @@ export default function MovieDetail() {
           </div>
 
           <div className="movie-detail__info">
-            <h1 className="movie-detail__title">{title}</h1>
-            {title !== movie.title && (
-              <p className="movie-detail__original">Título original: {movie.title}</p>
-            )}
+            <h1 className="movie-detail__title">{movie.title}</h1>
             <p className="movie-detail__meta">
               {movie.releaseYear} · {getGenreLabel(movie.genre)}
             </p>
