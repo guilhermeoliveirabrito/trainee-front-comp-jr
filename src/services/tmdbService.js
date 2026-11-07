@@ -4,6 +4,7 @@ const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 const SEARCH_URL = 'https://api.themoviedb.org/3/search/movie';
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 const CACHE_KEY = 'meucine:tmdb-en';
+// domínios de imagem-modelo que a API usa, não são capa de verdade
 const PLACEHOLDER_HOSTS = [
   'placehold.co',
   'placeholder.com',
@@ -13,6 +14,7 @@ const PLACEHOLDER_HOSTS = [
 
 export const EMPTY_INFO = { poster: '' };
 
+// evita buscar o mesmo filme duas vezes enquanto a primeira busca não termina
 const pending = new Map();
 
 function cacheKey(title, releaseYear) {
@@ -43,6 +45,7 @@ async function requestResults(title, year) {
 }
 
 function pickInfo(results, year) {
+  // aceita 1 ano de diferença entre a API e o TMDB, mas descarta filme de outro ano
   const candidates = results.filter((item) => {
     if (!year) return true;
     return Math.abs(Number(item.release_date?.slice(0, 4)) - year) <= 1;

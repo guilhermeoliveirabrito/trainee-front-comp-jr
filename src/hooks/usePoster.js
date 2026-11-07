@@ -9,6 +9,7 @@ export function usePoster(movie) {
   const [ownFailed, setOwnFailed] = useState(false);
   const [tmdbFailed, setTmdbFailed] = useState(false);
 
+  // ordem das tentativas: pôster da API → capa do TMDB → capa gerada
   const usingOwn = hasOwnPoster && !ownFailed;
 
   let src = '';

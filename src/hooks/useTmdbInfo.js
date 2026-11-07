@@ -13,6 +13,7 @@ export function useTmdbInfo(title, releaseYear) {
 
     let active = true;
 
+    // se falhar, cai no vazio e a tela mostra a capa gerada
     fetchMovieInfo(title, releaseYear)
       .then((info) => {
         if (active) setFetched({ key, info });

@@ -2,6 +2,7 @@ import { usePoster } from '../../hooks/usePoster';
 import './Poster.css';
 
 function hueFromTitle(title) {
+  // converte o título num número de 0 a 359, assim o mesmo filme sempre tem a mesma cor
   let hash = 0;
   for (const char of title) {
     hash = (hash * 31 + char.charCodeAt(0)) % 360;
