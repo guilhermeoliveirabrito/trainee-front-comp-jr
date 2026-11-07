@@ -5,9 +5,11 @@ import { login as loginRequest } from '../services/authService';
 import { clearSession, getStoredUser, getToken, saveSession } from '../utils/storage';
 
 export default function AuthProvider({ children }) {
+  // só usa o usuário salvo se ainda tiver token
   const [user, setUser] = useState(() => (getToken() ? getStoredUser() : null));
 
   useEffect(() => {
+    // o interceptor do axios dispara isso quando a API recusa o token
     function handleSessionExpired() {
       setUser(null);
     }

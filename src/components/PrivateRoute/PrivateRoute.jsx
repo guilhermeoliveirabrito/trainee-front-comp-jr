@@ -6,6 +6,7 @@ export default function PrivateRoute() {
   const location = useLocation();
 
   if (!isAuthenticated) {
+    // guarda de onde a pessoa veio pra voltar pra lá depois do login
     return <Navigate to="/login" replace state={{ from: location }} />;
   }
 

@@ -7,6 +7,7 @@ export default function Login() {
   const { login } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  // volta pra página que a pessoa tentou abrir antes de cair no login
   const redirectTo = location.state?.from?.pathname || '/movies';
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

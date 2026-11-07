@@ -10,6 +10,7 @@ export function useFavorites() {
   const [loadedIds, setLoadedIds] = useState([]);
   const [error, setError] = useState('');
 
+  // deslogado a lista é sempre vazia, mesmo se sobrar estado da sessão anterior
   const favoriteIds = isAuthenticated ? loadedIds : [];
 
   useEffect(() => {

@@ -31,6 +31,7 @@ export default function Register() {
     setSubmitting(true);
 
     try {
+      // o cadastro não devolve token, então faz o login logo depois
       await register(name, email, password);
       await login(email, password);
       navigate('/movies');
