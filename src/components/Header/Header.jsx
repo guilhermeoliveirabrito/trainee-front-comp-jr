@@ -1,5 +1,6 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
+import logo from '../../assets/logo.svg';
 import './Header.css';
 
 export default function Header() {
@@ -15,6 +16,7 @@ export default function Header() {
     <header className="header">
       <div className="header__content">
         <Link to="/" className="header__logo">
+          <img className="header__logo-icon" src={logo} alt="" />
           MeuCine
         </Link>
 
