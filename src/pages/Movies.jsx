@@ -21,7 +21,9 @@ const SORT_OPTIONS = [
 
 export default function Movies() {
   const { favoriteIds, toggleFavorite, error: favoritesError } = useFavorites();
+  // filtros e página ficam na URL, então o voltar do navegador e os links compartilhados mantêm tudo
   const [searchParams, setSearchParams] = useSearchParams();
+  // página inválida na URL (letra, zero, negativo) vira 1
   const page = Math.max(1, Number(searchParams.get('page')) || 1);
   const search = searchParams.get('search') || '';
   const genre = searchParams.get('genre') || '';
@@ -31,12 +33,14 @@ export default function Movies() {
   const [response, setResponse] = useState({ key: '' });
 
   const requestKey = [page, search, genre, sort, attempt].join('|');
+  // tá carregando enquanto a resposta guardada não for da busca atual
   const loading = response.key !== requestKey;
   const movies = response.movies ?? [];
   const pagination = response.pagination;
 
   useEffect(() => {
     let active = true;
+    // o select guarda campo e ordem juntos ("rating:desc"), aqui separa pra API
     const [sortBy, order] = sort ? sort.split(':') : [];
 
     getMovies({

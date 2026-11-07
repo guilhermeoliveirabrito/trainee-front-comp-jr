@@ -12,6 +12,7 @@ export default function ConfirmModal({
   const cancelRef = useRef(null);
 
   useEffect(() => {
+    // foco no "Cancelar" pra um Enter sem querer não excluir nada
     cancelRef.current?.focus();
   }, []);
 

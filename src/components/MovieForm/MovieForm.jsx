@@ -26,6 +26,7 @@ function toFormValues(movie) {
   };
 }
 
+// mesmas regras do back-end: campos obrigatórios, ano inteiro e nota de 0 a 10
 function validate(values) {
   const errors = {};
 
@@ -95,6 +96,7 @@ export default function MovieForm({ movie = null, submitting = false, onSubmit, 
       rating: Number(values.rating),
     };
 
+    // editando, campo vazio vira null pra limpar o pôster; criando, nem manda o campo
     const posterUrl = values.posterUrl.trim();
     if (posterUrl || isEditing) payload.posterUrl = posterUrl || null;
 

@@ -110,6 +110,7 @@ export default function AdminMovies() {
       await deleteMovie(movieToDelete.id);
       notify('success', `"${movieToDelete.title}" foi excluído.`);
       if (formState?.movie?.id === movieToDelete.id) closeForm();
+      // apagou o último da página, volta uma página
       if (movies.length === 1 && page > 1) setPage(page - 1);
       setReload((current) => current + 1);
     } catch (err) {
