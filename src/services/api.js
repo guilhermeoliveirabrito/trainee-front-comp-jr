@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { clearSession, getToken } from '../utils/storage';
 
+// o axios não enxerga o estado do react, então aviso a queda da sessão por evento
 export const SESSION_EXPIRED_EVENT = 'meucine:session-expired';
 
 const api = axios.create({
@@ -18,6 +19,8 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (response) => response,
   (error) => {
+    // 401 fora do /auth/ é token expirado ou inválido
+    // no login o 401 é só senha errada, aí não derruba a sessão
     const isAuthRequest = error.config?.url?.startsWith('/auth/');
     if (error.response?.status === 401 && getToken() && !isAuthRequest) {
       clearSession();

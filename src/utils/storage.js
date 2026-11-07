@@ -6,6 +6,7 @@ export function getToken() {
 }
 
 export function getStoredUser() {
+  // se o JSON salvo estiver quebrado, não deixa o app cair
   try {
     const raw = localStorage.getItem(USER_KEY);
     return raw ? JSON.parse(raw) : null;
