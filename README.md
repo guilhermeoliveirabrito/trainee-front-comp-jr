@@ -133,6 +133,48 @@ Também é possível criar uma conta nova pela página de cadastro.
 
 As rotas restritas redirecionam para o login e, depois de entrar, voltam para a página que o usuário tentou acessar.
 
+## Como testar
+
+Com a API e o front-end rodando (veja "Instalação e execução"), abra http://localhost:5173 e siga o roteiro abaixo. Para testar do zero, com o catálogo original, rode `npm run reset-db` na pasta da API.
+
+### 1. Navegação sem login
+
+1. Na **Home**, confira o destaque e a lista "Mais bem avaliados". Clique em "Ver filmes".
+2. Em **Filmes**, busque por um título (por exemplo, `matrix`), escolha um gênero e uma ordenação. Repare que a URL muda a cada filtro. Use o botão voltar do navegador e o "Limpar filtros".
+3. Navegue pela paginação no final da lista.
+4. Clique em um filme para abrir os **Detalhes**.
+5. Digite um endereço que não existe, como `/qualquer-coisa`, para ver a página 404.
+
+### 2. Rotas restritas e login
+
+1. Sem estar logado, acesse `/favorites`, `/profile` ou `/admin/movies`. Você é levado ao login.
+2. Entre com o usuário de teste. Depois do login, você volta para a página que tentou abrir.
+3. Tente entrar com uma senha errada para ver a mensagem de erro.
+4. Em **Criar conta**, teste uma senha curta, senhas diferentes e um e-mail já usado. Cada caso mostra uma mensagem própria.
+
+### 3. Favoritos e perfil
+
+1. Em **Filmes**, clique no coração de um card para favoritar. Clique de novo para desfavoritar.
+2. Abra **Favoritos** e confira a lista.
+3. Abra **Perfil**: ele mostra o total de filmes favoritados e a lista deles. Em "Editar perfil", altere o nome e salve. A notificação de sucesso aparece e o nome muda no cabeçalho.
+
+### 4. Gerenciar filmes (CRUD)
+
+1. Em **Gerenciar**, clique em "Novo filme", deixe campos vazios e envie para ver as validações. Depois preencha tudo e cadastre.
+2. Clique em "Editar" em um filme, altere algo e salve.
+3. Clique em "Excluir" e confirme no modal. O botão "Cancelar" e a tecla Esc fecham o modal sem excluir nada.
+
+### 5. Erros e sessão
+
+- **API fora do ar:** pare a API (Ctrl+C no terminal dela) e recarregue a lista de filmes. Aparece uma mensagem de erro com o botão "Tentar novamente".
+- **Sessão expirada:** logado, abra as ferramentas do navegador (F12), vá em Application, Local Storage, e troque o valor de `meucine:token` por qualquer texto. Ao abrir Favoritos, a sessão é encerrada e você volta ao login.
+
+### 6. Responsividade
+
+1. Abra as ferramentas do navegador (F12) e ative o modo de dispositivo (Ctrl+Shift+M).
+2. Teste três larguras: celular (375 px), tablet (768 px) e desktop (1280 px).
+3. Confira o cabeçalho, a grade de filmes, os formulários e a tela de gerenciamento em cada uma.
+
 ## Decisões de projeto
 
 - **Sessão:** o token e os dados do usuário ficam no `localStorage`. Um interceptor do Axios envia o token em todas as requisições e, se a API responder 401 em uma rota protegida, encerra a sessão e leva o usuário ao login.
